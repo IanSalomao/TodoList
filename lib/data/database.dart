@@ -11,20 +11,14 @@ class TodoDataBase {
       {
         'title': 'Sua tarefa',
         'isCompleted': false,
-        'description': 'Descrição da tarefa',
-        'tags': ['Tags', 'Tarefa rápida', 'Importante']
       },
       {
         'title': 'Essa tarefa está completa',
         'isCompleted': true,
-        'description': '',
-        'tags': <String>[]
       },
       {
         'title': 'Delete-me',
         'isCompleted': false,
-        'description': 'Arraste essa tarefa pasa esquerda para deletala.',
-        'tags': ['<<<', '<<<', '<<<']
       },
     ];
   }
@@ -41,8 +35,6 @@ class TodoDataBase {
     toDoList.add({
       'title': todo.title,
       'isCompleted': todo.isCompleted,
-      'description': todo.description,
-      'tags': todo.tags
     });
     updateDataBase();
   }
@@ -58,9 +50,8 @@ class TodoDataBase {
 
   Todo convertMapTodo(Map todo) {
     return Todo(
-        title: todo['title'],
-        isCompleted: todo['isCompleted'],
-        description: todo['description'],
-        tags: todo['tags']);
+      title: todo['title'],
+      isCompleted: todo['isCompleted'],
+    );
   }
 }

@@ -15,12 +15,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //Variável de controle de Title
+  final _titleController = TextEditingController();
+
+  //Inicializando a box do Hive
   final _myBox = Hive.box('mybox');
   TodoDataBase db = TodoDataBase();
-
-  final _titleController = TextEditingController();
-  final _descriptionController = TextEditingController();
-  final _tagController = TextEditingController();
 
   @override
   void initState() {
@@ -44,12 +44,8 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         db.addTodo(Todo(
           title: _titleController.text,
-          description: _descriptionController.text,
-          tags: setTagsFromString(_tagController.text),
         ));
         _titleController.clear();
-        _descriptionController.clear();
-        _tagController.clear();
       });
       db.updateDataBase();
       Navigator.of(context).pop(context);
@@ -58,8 +54,6 @@ class _HomePageState extends State<HomePage> {
 
   _cancel() {
     _titleController.clear();
-    _descriptionController.clear();
-    _tagController.clear();
     Navigator.of(context).pop(context);
   }
 
@@ -76,8 +70,6 @@ class _HomePageState extends State<HomePage> {
           return DialogBox(
             context: context,
             titleController: _titleController,
-            descriptionController: _descriptionController,
-            tagController: _tagController,
             onPressedSave: _saveNewTodo,
             onPressedCancel: _cancel,
           );

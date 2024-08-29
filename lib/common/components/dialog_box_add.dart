@@ -5,8 +5,6 @@ import 'package:todo_list_app/common/constants/app_text_styles.dart';
 class DialogBox extends StatelessWidget {
   final BuildContext context;
   final TextEditingController titleController;
-  final TextEditingController descriptionController;
-  final TextEditingController tagController;
   final VoidCallback? onPressedSave;
   final VoidCallback? onPressedCancel;
 
@@ -14,8 +12,6 @@ class DialogBox extends StatelessWidget {
     super.key,
     required this.context,
     required this.titleController,
-    required this.descriptionController,
-    required this.tagController,
     this.onPressedSave,
     this.onPressedCancel,
   });
@@ -64,38 +60,6 @@ class DialogBox extends StatelessWidget {
                     borderSide: BorderSide(color: AppColors.primaryColorx0),
                   ),
                   labelStyle: AppTextStyles.regularText(AppColors.grayx2)),
-            ),
-            TextFormField(
-              cursorColor: AppColors.primaryColorx0,
-              controller: descriptionController,
-              maxLines: null,
-              minLines: 3,
-              maxLength: 200,
-              decoration: InputDecoration(
-                  labelText: 'Descrição',
-                  hintText: 'Descrição da tarefa',
-                  alignLabelWithHint: true,
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.primaryColorx0),
-                  ),
-                  labelStyle: AppTextStyles.regularText(AppColors.grayx2)),
-            ),
-            TextFormField(
-              cursorColor: AppColors.primaryColorx0,
-              controller: tagController,
-              maxLines: null,
-              minLines: 2,
-              maxLength: 50,
-              decoration: InputDecoration(
-                labelText: 'Tags',
-                hintText: "Adicione tags separadas por ';'",
-                hintStyle: AppTextStyles.smalText(AppColors.grayx2),
-                alignLabelWithHint: true,
-                focusedBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.primaryColorx0),
-                ),
-                labelStyle: AppTextStyles.regularText(AppColors.grayx2),
-              ),
             ),
           ],
         ),

@@ -53,12 +53,7 @@ class CardTodo extends StatelessWidget {
                   Expanded(
                     child: Text(
                       todo.title,
-                      style: const TextStyle(
-                        color: Color(0xff00958C),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Montserrat',
-                      ),
+                      style: AppTextStyles.mediumText(AppColors.primaryColorx0),
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.clip,
                     ),
@@ -69,47 +64,12 @@ class CardTodo extends StatelessWidget {
                     value: todo.isCompleted,
                     onChanged: onChanged,
                     fillColor: todo.isCompleted
-                        ? const WidgetStatePropertyAll(Color(0xff00958C))
-                        : const WidgetStatePropertyAll(Color(0xffC8C8C8)),
+                        ? const WidgetStatePropertyAll(AppColors.primaryColorx0)
+                        : const WidgetStatePropertyAll(AppColors.grayx0),
                     side:
                         const BorderSide(color: Color(0xFF929292), width: 1.2),
                   ),
                 ],
-              ),
-
-              const SizedBox(height: 8),
-
-              // DESCRIÇÃO
-              Text(
-                todo.description,
-                style: AppTextStyles.smalText(
-                  todo.isCompleted ? AppColors.grayx0 : AppColors.grayx1,
-                ),
-                textAlign: TextAlign.left,
-                softWrap: true,
-                overflow: TextOverflow.clip,
-              ),
-
-              const SizedBox(height: 8),
-
-              // TAGS
-              Wrap(
-                spacing: 8,
-                runSpacing: 5, // Espaço entre as tags
-                children: todo.tags.map((tag) {
-                  return Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryColorx3,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(tag,
-                        style: AppTextStyles.smalText(AppColors.white)),
-                  );
-                }).toList(),
               ),
             ],
           ),
